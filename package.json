@@ -1,0 +1,17 @@
+{
+  "name": "under_project_child",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node-sass --watch sass/main.scss css/main.css --output-style compressed --output-dir under_project_child/css"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^8.0.0",
+    "sass-loader": "^13.2.2"
+  }
+}

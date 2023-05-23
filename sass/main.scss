@@ -1,0 +1,151 @@
+@import "../../under_project/style.css";
+@import "../../under_project/style-rtl.css";
+/*My styles here*/
+/* Estilos para el menú primario */
+.menu {
+  background-color: #e6f0ff; /* Color azul claro */
+  width: 100%; /* Ocupar el ancho de la pantalla */
+  height: 70px;
+  display: flex; /* Mostrar elementos en línea */
+  align-items: center; /* Alinear verticalmente al centro */
+}
+
+/* Estilos para los enlaces del menú */
+.menu ul li a {
+  color: #000; /* Color del texto */
+  text-decoration: none;
+  border-bottom: none;
+  font-weight: bold; /* Añadir negrita al texto */
+}
+
+.menu ul {
+  flex: 1; /* Ocupar todo el espacio disponible */
+  display: flex; /* Mostrar elementos en línea */
+  justify-content: space-between; /* Distribuir los elementos horizontalmente */
+  align-items: center; /* Alinear verticalmente al centro */
+}
+
+.menu ul li {
+  list-style: none;
+  margin-right: 10px; /* Espaciado entre elementos */
+  flex-grow: 1; /* Ocupar el ancho disponible */
+  margin-top: 19px; /* Ajustar el margen superior según sea necesario */
+}
+
+.menu ul li:last-child {
+  margin-right: 0; /* Eliminar el margen derecho del último elemento */
+}
+
+.current-menu-item {
+  color: rgb(48, 48, 245); /* Color de texto para el enlace activo */
+  font-weight: bold; /* Estilo de fuente para el enlace activo */
+}
+
+
+
+/*-------------BANNER*/
+.banner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Opcional: ajusta la altura del contenedor al 100% del alto de la pantalla */
+}
+/*--------CAROUSEL*/
+.carousel-item>a {
+  color: #000; /* Color del texto */
+  text-decoration: none !important;
+  border-bottom: none;
+  font-weight: bold; /* Añadir negrita al texto */
+}
+
+
+/*------------CONTACTO*/
+.wpcf7 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  margin: 0 auto;
+  max-width: 400px; /* Ajusta el ancho máximo del formulario según tus necesidades */
+}
+
+
+.wpcf7-form textarea{
+  width: 160%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+/*--------------GRID*/
+.grid-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  flex-wrap: wrap; /* Permite que los items se ajusten al ancho del contenedor */
+  max-width: 800px; /* Ancho máximo del grid */
+  margin: 0 auto; /* Centra el grid horizontalmente */
+  padding: 20px; /* Espacio interno del grid */
+  box-sizing: border-box; /* Incluye el padding en el ancho máximo del grid */
+}
+
+.grid-item {
+  width: 50%; /* Cada item ocupa el 50% del ancho del grid (2 items por fila) */
+  padding: 10px; /* Espacio interno de cada item */
+  box-sizing: border-box; /* Incluye el padding en el ancho del item */
+}
+.grid-item>a {
+  color: blue; /* Color del texto */
+  text-decoration: none !important;
+  border-bottom: none;
+  font-weight: bold; /* Añadir negrita al texto */
+}
+
+/* Estilos adicionales para los elementos dentro de los items */
+.grid-item h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 400px; /* Altura fija para las imágenes */
+  object-fit: cover; /* Ajusta la imagen dentro del contenedor manteniendo la proporción */
+}
+
+
+/*ESTILOS PAGINACION*/
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination ul {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+}
+
+.pagination ul li {
+  display: inline;
+  margin: 0 5px;
+}
+
+.pagination ul li a,
+.pagination ul li span {
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.pagination ul .prev,
+.pagination ul .next {
+  font-weight: bold;
+}
+
+.pagination ul .dots {
+  font-weight: bold;
+  color: #999;
+}

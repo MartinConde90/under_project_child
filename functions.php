@@ -1,4 +1,75 @@
 <?php
+//REEMPLAZAR EL JQUERY DE WOOCOMERCE POR EL QUE ESTAMOS USANDO, EN ESTE CASO 3.6.0
+function replace_woocommerce_jquery() {
+    wp_deregister_script('jquery');
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery.min.js', array(), '3.6.0', true);
+}
+add_action('wp_enqueue_scripts', 'replace_woocommerce_jquery', 99);
+
+// Configurar la página "TIENDA" como la página principal de WooCommerce
+function custom_woocommerce_shop_page_id() {
+    $shop_page = get_page_by_title( 'TIENDA' );
+
+    if ( $shop_page ) {
+        update_option( 'woocommerce_shop_page_id', $shop_page->ID );
+    }
+}
+add_action( 'init', 'custom_woocommerce_shop_page_id' );
+
+// Configurar la página "CARRITO" como la página Cart Page
+function custom_woocommerce_cart_page_id() {
+    $cart_page = get_page_by_title( 'CARRITO' );
+
+    if ( $cart_page ) {
+        update_option( 'woocommerce_cart_page_id', $cart_page->ID );
+    }
+}
+add_action( 'init', 'custom_woocommerce_cart_page_id' );
+
+// Configurar la página "CHECKOUT" como la página Cart Page
+function custom_woocommerce_checkout_page_id() {
+    $checkout_page = get_page_by_title( 'CHECKOUT' );
+
+    if ( $checkout_page ) {
+        update_option( 'woocommerce_checkout_page_id', $checkout_page->ID );
+    }
+}
+add_action( 'init', 'custom_woocommerce_checkout_page_id' );
+
+//HABILITAR CONTRA REEMBOLSO
+function habilitar_contra_reembolso( $gateways ) {
+    $gateways[] = 'WC_Gateway_COD'; // WooCommerce contra reembolso
+
+    return $gateways;
+}
+add_filter( 'woocommerce_payment_gateways', 'habilitar_contra_reembolso' );
+
+
+
+
+//CREADOR DE PÁGINAS
+function creapaginas(){
+    $pages = ['TIENDA','RECETAS','TRUCOS DE COCINA','NUTRICIÓN','CATÁLOGO','SOSTENIBILIDAD','CARRITO','CHECKOUT'];
+
+    // Crea nuevas páginas
+    foreach ($pages as $page_slug){
+        $existing_page = get_page_by_title($page_slug); // Comprobamos si la página existe por su título
+    
+        if (!$existing_page) {
+            $new_page = array(
+                'post_title'    => $page_slug, 
+                'post_content'  => 'Contenido de la página', 
+                'post_status'   => 'publish',
+                'post_type'     => 'page'
+            );
+            // Inserta la nueva página en la base de datos
+            wp_insert_post($new_page);
+        }
+    }
+}
+creapaginas();
+
+
 //CREAMOS LA PÁGINA PRINCIPAL CON Frontpage.php
 function pagina_principal() {
     $page_title = 'MAIN'; // Título de la página

@@ -1,12 +1,8 @@
 <?php
 get_header();
-require_once('creaPaginas.php');
+//require_once('creaPaginas.php');
 include('menu.php');
-?>
 
-
-
-<?php
 //banner
     $imagen_banner = get_field('imagen_banner', 'option');
     $texto_banner = get_field('texto_banner', 'option');

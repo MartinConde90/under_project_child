@@ -1,5 +1,5 @@
 <?php
-$pages = ['TIENDA','RECETAS','TRUCOS DE COCINA','NUTRICIÓN','CATÁLOGO','SOSTENIBILIDAD'];
+$pages = ['TIENDA','RECETAS','TRUCOS DE COCINA','NUTRICIÓN','CATÁLOGO','SOSTENIBILIDAD','CARRITO','MAIN','CHECKOUT'];
 
 // Crea nuevas páginas
 foreach ($pages as $page_slug){
@@ -13,7 +13,7 @@ foreach ($pages as $page_slug){
             'post_type'     => 'page'
         );
         // Inserta la nueva página en la base de datos
-        $new_page_id = wp_insert_post($new_page);
+        wp_insert_post($new_page);
     }
 }
 ?>
